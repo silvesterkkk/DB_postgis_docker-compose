@@ -13,4 +13,4 @@ DROP TABLE IF EXISTS test_model.test_table;
 CREATE TABLE test_model.test_table (
 	id char(3) PRIMARY KEY,
     feature_name varchar NULL
-);
+);"
