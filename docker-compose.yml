@@ -1,0 +1,29 @@
+version: "3.4"
+
+services:
+    pgAdmin:
+        restart: always
+        image: dpage/pgadmin4:latest
+        container_name: "pgadmin4"
+        ports:
+            - "5555:80"
+        environment:
+            PGADMIN_DEFAULT_EMAIL: admin
+            PGADMIN_DEFAULT_PASSWORD: password
+        volumes:
+            - pgadmin:/var/lib/pgadmin
+    postgres:
+        restart: always
+        image: postgis/postgis:latest
+        container_name: "pg01"
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: password
+            POSTGRES_DB: silvgis
+        volumes:
+            - pgvol:/var/lib/postgresql/data
+volumes:
+    pgvol:
+    pgadmin: 
